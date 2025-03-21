@@ -8,12 +8,14 @@ public class PlayerController : MonoBehaviour
 
     public event Action OnPlayerJumped;
 
+
     [Header("Referance")]
     [SerializeField] private Transform _oriantationTransform;
+    [SerializeField] private PlayerInteractionController _playerInteractionController;
 
     [Header("PlayerMovmentSettings")]
     [SerializeField] private KeyCode _movementKey;
-    [SerializeField] private float _speed;
+    [SerializeField] public float _speed;
 
     [Header("JumpSettings")]
     [SerializeField] private KeyCode _jumpKey;
@@ -43,13 +45,17 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _moveDirection;
 
-
+    private float _startingMovmentSpeed, _startingJumpFroce;
     private float _horizontalInput, _verticalInput;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _stateController = GetComponent<StateController>();
+
+        _startingMovmentSpeed = _speed;
+        _startingJumpFroce = _jumpForce;
+
     }
 
     private void Start()
@@ -119,13 +125,12 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-
     private void SetPlayerMovement()
     {
         _moveDirection = _oriantationTransform.forward * _verticalInput
             + _oriantationTransform.right * _horizontalInput;
 
+        
 
         float ForceMultilier = _stateController.GetCurrentState() switch
         {
@@ -135,7 +140,7 @@ public class PlayerController : MonoBehaviour
             _ => 1f
 
         };
-        _rb.AddForce(_moveDirection.normalized * _speed * ForceMultilier, ForceMode.Force);
+        _rb.AddForce(_moveDirection.normalized * _speed  * ForceMultilier, ForceMode.Force);
     }
 
     private void SetPlayerDrag()
@@ -191,6 +196,8 @@ public class PlayerController : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.down, _playerHeight * 0.5f + 0.2f, _groundLayer); 
     }
 
+    #region  Helper Functions
+
 
     private Vector3 GetMovmentDriction()
     {
@@ -202,5 +209,32 @@ public class PlayerController : MonoBehaviour
         return _isSliding;
     }
 
+
+
+    public void SetPlayerSpeed(float speed, float duration)
+    {
+        _speed += speed;
+        Invoke(nameof(ResetSpeed), duration);
+    }
+   private void ResetSpeed()
+   {
+         _speed = _startingMovmentSpeed;
+   }
+
+
+public void SetJumpForce(float Force, float duration)
+    {
+        _jumpForce += Force;
+        Invoke(nameof(ResetJumpForce), duration);
+      
+    }
+private void ResetJumpForce()
+   {
+         _jumpForce = _startingJumpFroce;
+   }
+
+
+
+#endregion
 
 }
