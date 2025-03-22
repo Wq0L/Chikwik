@@ -234,6 +234,11 @@ private void ResetJumpForce()
    }
 
 
+    public Rigidbody GetPlayerRigidbody()
+    {
+        return _rb;
+    }
+
 
 #endregion
 
