@@ -17,7 +17,7 @@ public class HolyWheatcCollectible : MonoBehaviour,ICollectible
 
     void Awake()
     {
-        _playerBoosterTransform = _playerStateUI.GetBoosterSpeedTransform;
+        _playerBoosterTransform = _playerStateUI.GetBoosterJumpTransform;
         _playerBooserImage = _playerBoosterTransform.GetComponent<Image>();
     }
 

@@ -94,7 +94,7 @@ private Image _playerSlidingImage;
         passiveTransform.DOAnchorPosX(-90f, _moveDuration).SetEase(_moveEase);
     }
 
-        private IEnumerator SetBoosterUserInterfaces(RectTransform activeTransform, Image boosterImage, Image wheatImage, Sprite activeSprite, 
+    private IEnumerator SetBoosterUserInterfaces(RectTransform activeTransform, Image boosterImage, Image wheatImage, Sprite activeSprite, 
         Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float duration)
     {
 
@@ -109,7 +109,8 @@ private Image _playerSlidingImage;
         activeTransform.DOAnchorPosX(90f, _moveDuration).SetEase(_moveEase);
     }
 
-    public void PlayBoostersUIAnimation(RectTransform activeTransform, Image boosterImage, Image wheatImage, Sprite activeSprite, Sprite passiveSprite, Sprite activeWheatSprite, Sprite passiveWheatSprite, float duration)
+    public void PlayBoostersUIAnimation(RectTransform activeTransform, Image boosterImage, Image wheatImage, Sprite activeSprite, Sprite passiveSprite,
+     Sprite activeWheatSprite, Sprite passiveWheatSprite, float duration)
     {
         StartCoroutine(SetBoosterUserInterfaces(activeTransform, boosterImage, wheatImage, activeSprite, passiveSprite, activeWheatSprite, passiveWheatSprite, duration));
     }

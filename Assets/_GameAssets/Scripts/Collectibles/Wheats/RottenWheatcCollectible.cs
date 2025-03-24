@@ -18,7 +18,7 @@ public class RottenWheatcCollectible : MonoBehaviour, ICollectible
 
     void Awake()
     {
-        _playerBoosterTransform = _playerStateUI.GetBoosterSpeedTransform;
+        _playerBoosterTransform = _playerStateUI.GetBoosterSlowTransform;
         _playerBooserImage = _playerBoosterTransform.GetComponent<Image>();
     }
 

@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7570759}
+  - component: {fileID: 7570760}
   m_Layer: 5
   m_Name: TimerUI
   m_TagString: Untagged
@@ -156,6 +157,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7570760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95119a5c893df0c49a0b460151b26701, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timerRotableTransform: {fileID: 48963650}
+  _timerText: {fileID: 1138914152}
+  _rotationDuration: 60
+  _rotationEase: 1
 --- !u!1 &48963649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,6 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1070319685}
+  - component: {fileID: 1070319686}
   m_Layer: 5
   m_Name: PlayerHealthUI
   m_TagString: Untagged
@@ -2032,6 +2050,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1070319686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070319684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab7ead27a942e7241878c2b5f08bf38f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealthImage:
+  - {fileID: 1821171693}
+  - {fileID: 1970132540}
+  - {fileID: 1356513135}
+  _playerHealtySprite: {fileID: 21300000, guid: f52db0cc606b0d648b3868f7865417c6, type: 3}
+  _playerUnHealtySprite: {fileID: 21300000, guid: 132037a797cdc04469a6e251ee7e2172, type: 3}
+  _scaleDuration: 0.3
 --- !u!1 &1138914150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3354,6 +3391,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 971190626}
     - target: {fileID: 4645664770313438746, guid: 5532d64071d65384fb945a7d6e05b512, type: 3}
+      propertyPath: _wheatDesingSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 446d4c6c0c90b5247b159f3c6f8b1525, type: 2}
+    - target: {fileID: 4645664770313438746, guid: 5532d64071d65384fb945a7d6e05b512, type: 3}
       propertyPath: _playerController
       value: 
       objectReference: {fileID: 2120601594}
@@ -3440,6 +3481,10 @@ PrefabInstance:
       propertyPath: _playerStateUI
       value: 
       objectReference: {fileID: 971190626}
+    - target: {fileID: 7521686442703559899, guid: dcb85707309b8134dae7178dd5555d6f, type: 3}
+      propertyPath: _wheatDesingSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b30a2e6c38352449bf657e0350567a2, type: 2}
     - target: {fileID: 7521686442703559899, guid: dcb85707309b8134dae7178dd5555d6f, type: 3}
       propertyPath: _playerController
       value: 
@@ -3596,6 +3641,10 @@ PrefabInstance:
       propertyPath: _playerStateUI
       value: 
       objectReference: {fileID: 971190626}
+    - target: {fileID: 6820533773809751479, guid: f2e23e0cd790dd24d9e373704fce8564, type: 3}
+      propertyPath: _wheatDesingSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b0e146bd46c0884bad86040a1805223, type: 2}
     - target: {fileID: 6820533773809751479, guid: f2e23e0cd790dd24d9e373704fce8564, type: 3}
       propertyPath: _playerController
       value: 
