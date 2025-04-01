@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class PlayerInteractionController : MonoBehaviour
 {
+    [SerializeField] private Transform _playerVisualTransform;
 
     [SerializeField] private PlayerController _playerController;
+    private Rigidbody _rb;
+
 
 
     void Awake()
     {
         _playerController = GetComponent<PlayerController>();
+        _rb = GetComponent<Rigidbody>();
     }
 
 
@@ -43,6 +47,12 @@ public class PlayerInteractionController : MonoBehaviour
         }
     }
 
-
+    private void OnParticleCollision(GameObject other)
+    {
+        if(other.TryGetComponent<IDamageable>(out var damageable))
+        {
+            damageable.GiveDamage(_rb, _playerVisualTransform);
+        }
+    }
 
 }

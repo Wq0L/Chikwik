@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    public event Action OnplayerDeath;
+    public static HealthManager Instance { get; private set; }
 
+    [SerializeField] private PlayerHealthUI _playerHealthUI;
     [SerializeField] private int _maxHealth = 3;
      private int _currentHealth;
+
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
 
     private void Start()
@@ -17,14 +26,15 @@ public class HealthManager : MonoBehaviour
 
     public void Damage (int damageAmount)
         {
-            _currentHealth -= damageAmount;
+            
             if (_currentHealth > 0)
             {
                 _currentHealth -= damageAmount;
+                _playerHealthUI.AnimateDamage();
 
                  if (_currentHealth <= 0)
                 {
-              // Todo:Player is dead
+                   OnplayerDeath?.Invoke();
                 }
             }
     }
