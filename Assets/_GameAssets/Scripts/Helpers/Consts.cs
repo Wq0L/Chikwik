@@ -5,6 +5,7 @@ public class Consts
   public struct SceneNames
   {
     public const string GAME_SCENE = "GameScenes";
+    public const string MENU_SCENE = "MenuScene";
   }
 
 
@@ -22,6 +23,14 @@ public class Consts
         public const string IS_SLIDING= "IsSliding";
         public const string IS_SLIDING_ACTIVE = "IsSlidingActive";
     }
+
+public struct CatAnimations
+{
+    public const string IS_WALKING = "IsWalking";
+    public const string IS_RUNNING = "IsRunning";
+    public const string IS_ATTACKING = "IsAttacking";
+    public const string IS_IDLING = "IsIdling";
+}
 
 
 public struct OtherAnimations
